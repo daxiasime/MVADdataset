@@ -1,33 +1,308 @@
-1.	数据集描述
-此数据集是典型的多视角场景的视频异常检测数据集，共包含xx条视频记录，包含行驶机动车辆，自行车，拖车等行为。正常事件为行人有序行走，该数据集采用视频帧级别注释，此外按照15帧为步长进行对异常主体进行了框选。
-数据集和标注代码已开源：https://github.com/daxiasime/MVADdataset
-2.	数据集采集方式
-此数据使用两台gopro hreo black 相机，两台相机参数相同，具有相同的时钟信息，参数设置分别如下表所示。
- 
-图1 Goprohero4 相机
-数据的采集时间为上午9点到下午4点，天气为阴天。为了大规模阴影对于视频内容的影响天气选择阴天。采集点共分为两处，一处位于南部楼梯上口，第二处在食堂窗台，相机两个相机具有高度差和角度差，用于模拟真实监控场景下，为实现监控全覆盖，而设计的角度。
-3.	数据集内容
-视频内容共选取了三天的录制内容分别标记为H、I、J。每个子文件夹的内容水平角度和高度相同，俯仰角度略有不同（模拟真实监控场景中的抖动问题），
-
- 
-图2 摄像机放置位置图
-
-4.	数据集异常分布
- 
-图3 异常事件分布图
-常用的视频异常检测的公开数据集主要包括UCSD、Avenue、ShanghaiTech、UCF-Crime，如表1所示。  
-
-表1 MVAD数据集和其他数据集的比较
-UCSD Ped1	单一	70	踩踏草坪、自行车、卡车等		帧级、像素级
-UCSD Ped2		28			
-CUHK-Avenue	单一	37	投掷物体、徘徊、奔跑等		帧级
-UCF-Crime	单一	1900	虐待、纵火、盗窃、枪击等	128小时	视频级
-ShanghaiTech	单一	437	奔跑、骑自行车、翻越栏杆等	3小时	帧级、像素级
-MAVAD	多视角	924	骑车，机动车，拖车	33小时	帧级别 
-
-
-5.数据集的标注类型
-此数据集采用视频帧标注+异常框标注两个形式，并将其标注在
- 
-
-
+<h1><a name="_Toc128496279"></a>附录二 多视角数据集MVAD</h1>
+<h2><a name="_Toc128496280"></a>1.数据集描述</h2>
+<p>此数据集是典型的多视角场景的视频异常检测数据集，共包含xx条视频记录，包含行驶机动车辆，自行车，拖车等行为。正常事件为行人有序行走，该数据集采用视频帧级别注释，此外按照15帧为步长进行对异常主体进行了框选。</p>
+<p>数据集和标注代码已开源：https://github.com/daxiasime/MVADdataset</p>
+<h2><a name="_Toc128496281"></a>2.数据集采集方式</h2>
+<p>此数据集使用两台gopro hreo black 相机，两台相机参数相同，参数设置如表1所示。</p>
+<p>表1 Gopro相机参数设置表</p>
+<table>
+<tbody>
+<tr>
+<td width="277">
+<p>条目</p>
+</td>
+<td width="277">
+<p>内容</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>视频分辨率</p>
+</td>
+<td width="277">
+<p>1280*720</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>视频帧率</p>
+</td>
+<td width="277">
+<p>30fps</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>FOV</p>
+</td>
+<td width="277">
+<p>标准</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>点测光</p>
+</td>
+<td width="277">
+<p>开</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>PROTUNE</p>
+</td>
+<td width="277">
+<p>关</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>视频制式</p>
+</td>
+<td width="277">
+<p>NTSC</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>白平衡</p>
+</td>
+<td width="277">
+<p>Auto</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>ISO</p>
+</td>
+<td width="277">
+<p>Auto</p>
+</td>
+</tr>
+<tr>
+<td width="277">
+<p>EV COMP</p>
+</td>
+<td width="277">
+<p>0</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>数据的采集时间为上午9点到下午4点，天气为阴天。为了大规模阴影对于视频内容的影响天气选择阴天。如图1所示，数据集拍摄点共分为两处，一处位于南部楼梯上口，第二处在食堂窗台，相机两个相机具有高度差和角度差，用于模拟真实监控场景下，为实现监控全覆盖，而设计的角度。</p>
+<p>图1 摄像机放置位置图</p>
+<h2><a name="_Toc128496282"></a>3.数据集内容</h2>
+<p>视频内容共选取了三天的录制内容分别标记为H、I、J。每个子文件夹的内容水平角度和高度相同，俯仰角度略有不同（模拟真实监控场景中的抖动问题），MVAD数据集包括人流量密集和稀疏的时刻，包含光线变化等因素，更符合正式的监控场景，每个视角共采集514条视频记录，其中正常视频137条，异常视频120条，且中异常视频中33条视频记录包含遮挡情况。共包含骑车，机动车，拖拽物体等三种异常行为。视频帧的分辨率为1280&times;720，视频帧率为30fps。异常视频中的异常帧占比情况如2所示，视频中的异常帧占比集中出现在10%左右。</p>
+<p>&nbsp;</p>
+<p>图2视频异常视频帧占比密度图</p>
+<p>本章的训练集测试集划分结果如表3所示，训练集182条视频记录，测试集75条记录。训练集和测试集包含的正常异常情况如下表所示。</p>
+<p>表3 MVAD数据集正常异常划分表</p>
+<table width="565">
+<tbody>
+<tr>
+<td width="98">
+<p>类型</p>
+</td>
+<td width="90">
+<p>视频总数</p>
+</td>
+<td width="90">
+<p>正常视频数</p>
+</td>
+<td width="141">
+<p>不带遮挡异常视频数</p>
+</td>
+<td width="145">
+<p>带有遮挡异常视频数</p>
+</td>
+</tr>
+<tr>
+<td width="98">
+<p>训练集</p>
+</td>
+<td width="90">
+<p>182</p>
+</td>
+<td width="90">
+<p>95</p>
+</td>
+<td width="141">
+<p>60</p>
+</td>
+<td width="145">
+<p>27</p>
+</td>
+</tr>
+<tr>
+<td width="98">
+<p>测试集</p>
+</td>
+<td width="90">
+<p>75</p>
+</td>
+<td width="90">
+<p>42</p>
+</td>
+<td width="141">
+<p>27</p>
+</td>
+<td width="145">
+<p>6</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>MVAD数据集与其他数据集内容比较如表4所示。</p>
+<p>表4 MVAD数据集和其他数据集的比较</p>
+<table>
+<tbody>
+<tr>
+<td colspan="2" width="113">
+<p>名称</p>
+</td>
+<td width="57">
+<p>类型</p>
+</td>
+<td colspan="2" width="94">
+<p>视频数量</p>
+</td>
+<td width="170">
+<p>异常种类</p>
+</td>
+<td width="119">
+<p>标签类别</p>
+</td>
+</tr>
+<tr>
+<td width="104">
+<p>UCSD</p>
+</td>
+<td colspan="3" width="94">
+<p>单场景</p>
+</td>
+<td width="66">
+<p>70</p>
+</td>
+<td width="170">
+<p>踩踏草坪、自行车、卡车等</p>
+</td>
+<td width="119">
+<p>帧级、像素级</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" width="113">
+<p>Subway</p>
+</td>
+<td colspan="2" width="85">
+<p>单场景</p>
+</td>
+<td width="66">
+<p>1</p>
+</td>
+<td width="170">
+<p>乘客逆行、逃票、徘徊等</p>
+</td>
+<td width="119">
+<p>帧级</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" width="113">
+<p>Avenue</p>
+</td>
+<td colspan="2" width="85">
+<p>单场景</p>
+</td>
+<td width="66">
+<p>37</p>
+</td>
+<td width="170">
+<p>投掷物体、徘徊、奔跑等</p>
+</td>
+<td width="119">
+<p>帧级</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" width="113">
+<p>ShanghaiTech</p>
+</td>
+<td colspan="2" width="85">
+<p>多场景</p>
+</td>
+<td width="66">
+<p>437</p>
+</td>
+<td width="170">
+<p>奔跑、骑自行车、机动车</p>
+</td>
+<td width="119">
+<p>帧级、像素级</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" width="113">
+<p>UCF-Crime</p>
+</td>
+<td colspan="2" width="85">
+<p>多场景</p>
+</td>
+<td width="66">
+<p>1900</p>
+</td>
+<td width="170">
+<p>虐待、纵火、盗窃、枪击等</p>
+</td>
+<td width="119">
+<p>视频级</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" width="113">
+<p>UMN</p>
+</td>
+<td colspan="2" width="85">
+<p>多场景</p>
+</td>
+<td width="66">
+<p>11</p>
+</td>
+<td width="170">
+<p>四处散开</p>
+</td>
+<td width="119">
+<p>帧级、视频级</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" width="113">
+<p><strong>MVAD</strong></p>
+</td>
+<td colspan="2" width="85">
+<p><strong>单场景</strong></p>
+</td>
+<td width="66">
+<p><strong>514</strong></p>
+</td>
+<td width="170">
+<p><strong>驾驶机动车、骑行、拖拽物体</strong></p>
+</td>
+<td width="119">
+<p><strong>帧级</strong></p>
+</td>
+</tr>
+<tr>
+<td width="104">&nbsp;</td>
+<td width="9">&nbsp;</td>
+<td width="57">&nbsp;</td>
+<td width="28">&nbsp;</td>
+<td width="66">&nbsp;</td>
+<td width="170">&nbsp;</td>
+<td width="119">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
